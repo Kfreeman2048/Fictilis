@@ -6,8 +6,10 @@
  */
 
 import React from 'react';
+import {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +26,10 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import{
+  dieRoller,
+} from './dice_roller/rollDie.ts';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -56,10 +62,15 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
+  const [dieValue, setDieValue] = useState(0);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  const onPressRollDie = () => {
+    setDieValue(dieRoller);
   };
 
   return (
@@ -76,9 +87,17 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+          <Section title="Roll Dice">
+            <Button
+              onPress={onPressRollDie} 
+              title="Roll d20"
+              color="#841584"
+              accessibilityLabel="Roll a 20 sided die."
+            />
+            <Text>
+              {"\n"}
+              {dieValue}
+            </Text>
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />

@@ -69,7 +69,7 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const onPressRollDie = () => {
+  const onPressRollD20 = () => {
     setDieValue(dieRoller(20));
   };
 
@@ -89,7 +89,7 @@ function App(): React.JSX.Element {
           }}>
           <Section title="Roll Dice">
             <Button
-              onPress={onPressRollDie} 
+              onPress={onPressRollD20} 
               title="Roll d20"
               color="#841584"
               accessibilityLabel="Roll a 20 sided die."

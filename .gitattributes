@@ -1,2 +1,2 @@
 #this ensure lf line endings even on windows
-*.txt text eol=lf
+* text=auto eol=lf

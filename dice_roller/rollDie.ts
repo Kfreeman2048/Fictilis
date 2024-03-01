@@ -1,4 +1,5 @@
-export function dieRoller(): number
+
+export function dieRoller(max: number): number
 {
-    return 19;
+    return Math.ceil(Math.random() * max);
 }

@@ -70,7 +70,7 @@ function App(): React.JSX.Element {
   };
 
   const onPressRollDie = () => {
-    setDieValue(dieRoller);
+    setDieValue(dieRoller(20));
   };
 
   return (

@@ -8,6 +8,6 @@ function wait(ms: number) {
 
 export function dieRoller(max: number): number
 {
-    wait(2);
+    wait(1);
     return Math.ceil(Math.random() * max);
 }

@@ -14,7 +14,7 @@ export function dieRoller(max: number): number
 
 export function accuracyCheck(roll: number, target: number, DaD: number): boolean
 {
-    if (target == null || target == 0)
+    if (target === null || target === 0)
     {
         target = 8;
     }

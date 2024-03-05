@@ -11,3 +11,11 @@ export function dieRoller(max: number): number
     wait(1);
     return Math.ceil(Math.random() * max);
 }
+
+export function accuracyCheck(roll: number, target: number, DaD: number): boolean
+{
+    if (roll >= target + DaD) {
+        return true;
+    }
+    else return false;
+}

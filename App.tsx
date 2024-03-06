@@ -9,6 +9,7 @@ import React from 'react';
 import {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  TextInput,
   Button,
   SafeAreaView,
   ScrollView,
@@ -30,6 +31,10 @@ import {
 import{
   dieRoller,
 } from './dice_roller/rollDie.ts';
+
+import{
+  accuracyCheck,
+} from './accuracy_checker/checkAccuracy.ts';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,6 +68,9 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
+  const [target, setTarget] = useState('');
+  const [deflectAndDodge, setDeflectAndDodge] = useState('');
+  const [accuracyValue, setAccuracyValue] = useState(true);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -71,6 +79,10 @@ function App(): React.JSX.Element {
 
   const onPressRollD20 = () => {
     setDieValue(dieRoller(20));
+  };
+
+  const onPressCheckAccuracy = () => {
+    setAccuracyValue(accuracyCheck(dieValue, Number(target), Number(deflectAndDodge)));
   };
 
   return (
@@ -99,9 +111,32 @@ function App(): React.JSX.Element {
               {dieValue}
             </Text>
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
+          <SafeAreaView>
+            <TextInput
+              style={styles.input}
+              onChangeText={setDeflectAndDodge}
+              value={deflectAndDodge}
+              placeholder="Deflect and Dodge"
+              keyboardType="numeric"
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={setTarget}
+              value={target}
+              placeholder="target"
+              keyboardType="numeric"
+            />
+           <Button
+              onPress={onPressCheckAccuracy} 
+              title="Did I hit?"
+              color="#841584"
+              accessibilityLabel="Accuracy Check"
+            />
+            <Text>
+              {"\n"}
+              {accuracyValue ? 'true' : 'false'}
+            </Text>
+          </SafeAreaView>
           <Section title="Debug">
             <DebugInstructions />
           </Section>
@@ -131,6 +166,12 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
 

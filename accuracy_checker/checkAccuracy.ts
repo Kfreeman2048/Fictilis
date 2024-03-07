@@ -1,13 +1,11 @@
-export function accuracyCheck(roll: number, target: number, DaD: number): boolean
-{
+export function accuracyCheck(roll: number, target: number, DaD: number): boolean {
     if (roll >= target + DaD) {
         return true;
     }
     else return false;
 }
 
-export function accuracyBeatBy5(roll: number, target: number, DaD: number): number 
-{
+export function accuracyBeatBy5(roll: number, target: number, DaD: number): number {
     if (roll < (target + DaD)) {
         return 0;
     }

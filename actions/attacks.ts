@@ -7,8 +7,7 @@ import{
 } from '../accuracy_checker/checkAccuracy.ts';
 
 export function slam(DaD: number, wDamage: number): number {
-    const roll = dieRoller(20);
-    if (accuracyCheck(roll, 8, DaD)) {
+    if (accuracyCheck(dieRoller(20), 8, DaD)) {
         return (wDamage * 2);
     }
     else {

@@ -36,6 +36,10 @@ import{
   accuracyCheck,
 } from './accuracy_checker/checkAccuracy.ts';
 
+import{
+  slam,
+} from './actions/attacks.ts'
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -68,9 +72,9 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
-  const [target, setTarget] = useState('');
+  const [wDamage, setWDamage] = useState('');
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
-  const [accuracyValue, setAccuracyValue] = useState(true);
+  const [result, setResult] = useState(0);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -81,8 +85,8 @@ function App(): React.JSX.Element {
     setDieValue(dieRoller(20));
   };
 
-  const onPressCheckAccuracy = () => {
-    setAccuracyValue(accuracyCheck(dieValue, Number(target), Number(deflectAndDodge)));
+  const onPressGetResult = () => {
+    setResult(slam(Number(deflectAndDodge), Number(wDamage)));
   };
 
   return (
@@ -116,25 +120,25 @@ function App(): React.JSX.Element {
               style={styles.input}
               onChangeText={setDeflectAndDodge}
               value={deflectAndDodge}
-              placeholder="Deflect and Dodge"
+              placeholder="Target's Deflect and Dodge"
               keyboardType="numeric"
             />
             <TextInput
               style={styles.input}
-              onChangeText={setTarget}
-              value={target}
-              placeholder="target"
+              onChangeText={setWDamage}
+              value={wDamage}
+              placeholder="Your Weapon Damage"
               keyboardType="numeric"
             />
            <Button
-              onPress={onPressCheckAccuracy} 
-              title="Did I hit?"
+              onPress={onPressGetResult} 
+              title="Slam"
               color="#841584"
-              accessibilityLabel="Accuracy Check"
+              accessibilityLabel="Slam"
             />
             <Text>
               {"\n"}
-              {accuracyValue ? 'true' : 'false'}
+              {result}
             </Text>
           </SafeAreaView>
           <Section title="Debug">

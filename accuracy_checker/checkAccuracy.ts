@@ -9,11 +9,9 @@ export function accuracyBeatBy5(roll: number, target: number, DaD: number): numb
     if (roll < (target + DaD)) {
         return 0;
     }
-
     if (roll - (target + DaD) >= 5) {
         return 2;
     }
-
     if (roll >= (target + DaD)) {
         return 1;
     }

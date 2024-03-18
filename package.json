@@ -10,8 +10,20 @@
     "test": "jest"
   },
   "dependencies": {
+    "@expo/metro-config": "^0.17.6",
+    "@tamagui/config": "^1.91.4",
+    "@tamagui/core": "^1.91.3",
+    "@tamagui/metro-plugin": "^1.91.4",
+    "assert": "^2.1.0",
+    "crypto": "^1.0.1",
+    "expo": "^50.0.13",
+    "fs": "^0.0.1-security",
+    "module": "^0.0.1",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
     "react": "18.2.0",
-    "react-native": "0.73.4"
+    "react-native": "0.73.4",
+    "url": "^0.11.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

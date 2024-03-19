@@ -17,7 +17,6 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
@@ -27,6 +26,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import { TamaguiProvider, View } from '@tamagui/core';
 
 import{
   dieRoller,
@@ -90,67 +91,69 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Roll Dice">
+    <TamaguiProvider>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={backgroundStyle}>
+          <Header />
+          <View
+            style={{
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            }}>
+            <Section title="Roll Dice">
+              <Button
+                onPress={onPressRollD20} 
+                title="Roll d20"
+                color="#841584"
+                accessibilityLabel="Roll a 20 sided die."
+              />
+              <Text>
+                {"\n"}
+                {dieValue}
+              </Text>
+            </Section>
+            <SafeAreaView>
+              <TextInput
+                style={styles.input}
+                onChangeText={setDeflectAndDodge}
+                value={deflectAndDodge}
+                placeholder="Target's Deflect and Dodge"
+                keyboardType="numeric"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setWDamage}
+                value={wDamage}
+                placeholder="Your Weapon Damage"
+                keyboardType="numeric"
+              />
             <Button
-              onPress={onPressRollD20} 
-              title="Roll d20"
-              color="#841584"
-              accessibilityLabel="Roll a 20 sided die."
-            />
-            <Text>
-              {"\n"}
-              {dieValue}
-            </Text>
-          </Section>
-          <SafeAreaView>
-            <TextInput
-              style={styles.input}
-              onChangeText={setDeflectAndDodge}
-              value={deflectAndDodge}
-              placeholder="Target's Deflect and Dodge"
-              keyboardType="numeric"
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={setWDamage}
-              value={wDamage}
-              placeholder="Your Weapon Damage"
-              keyboardType="numeric"
-            />
-           <Button
-              onPress={onPressGetResult} 
-              title="Slam"
-              color="#841584"
-              accessibilityLabel="Slam"
-            />
-            <Text>
-              {"\n"}
-              {result}
-            </Text>
-          </SafeAreaView>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+                onPress={onPressGetResult} 
+                title="Slam"
+                color="#841584"
+                accessibilityLabel="Slam"
+              />
+              <Text>
+                {"\n"}
+                {result}
+              </Text>
+            </SafeAreaView>
+            <Section title="Debug">
+              <DebugInstructions />
+            </Section>
+            <Section title="Learn More">
+              Read the docs to discover what to do next:
+            </Section>
+            <LearnMoreLinks />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </TamaguiProvider>
   );
 }
 

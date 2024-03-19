@@ -24,7 +24,6 @@ import {
   DebugInstructions,
   Header,
   LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 import { TamaguiProvider, View } from '@tamagui/core';
@@ -34,12 +33,8 @@ import{
 } from './dice_roller/rollDie.ts';
 
 import{
-  accuracyCheck,
-} from './accuracy_checker/checkAccuracy.ts';
-
-import{
   slam,
-} from './actions/attacks.ts'
+} from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
   title: string;

@@ -28,6 +28,8 @@ import {
 
 import { TamaguiProvider, View } from '@tamagui/core';
 
+import config from './tamagui.config'
+
 import{
   dieRoller,
 } from './dice_roller/rollDie.ts';
@@ -86,7 +88,7 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <TamaguiProvider>
+    <TamaguiProvider config={config}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}

@@ -10,7 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@tamagui/config": "^1.92.0",
     "@tamagui/core": "^1.91.5",
+    "@tamagui/metro-plugin": "^1.92.0",
     "react": "18.2.0",
     "react-native": "^0.73.6"
   },

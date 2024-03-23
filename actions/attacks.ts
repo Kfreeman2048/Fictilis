@@ -14,7 +14,7 @@ export function slam(DaD: number, wDamage: number): number {
     else {
         return 0;
     }
-}
+};
 
 export function icicleSpear(DaD: number, wDamage: number): number {
     const accuracyValue = accuracyBeatBy5(dieRoller(20), 8, DaD);
@@ -27,4 +27,4 @@ export function icicleSpear(DaD: number, wDamage: number): number {
     else {
         return 0;
     }
-}
+};

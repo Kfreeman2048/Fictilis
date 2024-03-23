@@ -1,5 +1,10 @@
-import { config } from '@tamagui/config/v3'
-import { Text, View } from 'react-native'
+import { config } from '@tamagui/config/v3';
+
+import { 
+  Text,
+  View,
+} from 'react-native';
+
 import {
   color,
   radius,
@@ -7,11 +12,12 @@ import {
   space,
   themes,
   zIndex,
-} from '@tamagui/themes'
+} from '@tamagui/themes';
+
 import { 
   createTamagui, 
   createTokens,
-} from '@tamagui/core' // or @tamagui/core
+} from '@tamagui/core';
 
 const tokens = createTokens ({
   size,
@@ -19,18 +25,18 @@ const tokens = createTokens ({
   zIndex,
   color,
   radius,
-})
+});
 
 const appConfig = createTamagui({
   config,
   themes,
   tokens,
-})
+});
 
-export type AppConfig = typeof appConfig
+export type AppConfig = typeof appConfig;
 
 declare module '@tamagui/core' {
   interface TamaguiCustomConfig extends AppConfig {}
-}
+};
 
-export default appConfig
+export default appConfig;

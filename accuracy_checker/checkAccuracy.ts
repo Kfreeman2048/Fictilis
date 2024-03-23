@@ -3,7 +3,7 @@ export function accuracyCheck(roll: number, target: number, DaD: number): boolea
         return true;
     }
     else return false;
-}
+};
 
 export function accuracyBeatBy5(roll: number, target: number, DaD: number): number {
     if (roll < (target + DaD)) {
@@ -16,4 +16,4 @@ export function accuracyBeatBy5(roll: number, target: number, DaD: number): numb
         return 1;
     }
     else return 0;
-}
+};

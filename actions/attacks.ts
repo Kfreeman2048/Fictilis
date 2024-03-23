@@ -7,6 +7,15 @@ import{
     accuracyBeatBy5,
 } from '../accuracy_checker/checkAccuracy.ts';
 
+function hit(DaD: number, target: number): number {
+    if (accuracyCheck(dieRoller(20), target, DaD)) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+};
+
 export function slam(DaD: number, wDamage: number): number {
     if (accuracyCheck(dieRoller(20), 8, DaD)) {
         return (wDamage * 2);
@@ -27,4 +36,8 @@ export function icicleSpear(DaD: number, wDamage: number): number {
     else {
         return 0;
     }
+};
+
+export function flurry(DaD: number, wDamage: number): number[] {
+    return new Array (wDamage * hit(DaD, 8), wDamage * hit(DaD, 8), wDamage * hit(DaD, 8))
 };

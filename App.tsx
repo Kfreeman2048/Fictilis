@@ -26,6 +26,7 @@ import{
 
 import{
   slam,
+  flurry,
 } from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
@@ -63,6 +64,7 @@ function App(): React.JSX.Element {
   const [wDamage, setWDamage] = useState('');
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
   const [slamResult, setSlamResult] = useState(0);
+  const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -75,6 +77,10 @@ function App(): React.JSX.Element {
 
   const onPressGetSlamResult = () => {
     setSlamResult(slam(Number(deflectAndDodge), Number(wDamage)));
+  };
+
+  const onPressGetFlurryResult = () => {
+    setFlurryResult(flurry(Number(deflectAndDodge), Number(wDamage)));
   };
 
   return (
@@ -127,6 +133,16 @@ function App(): React.JSX.Element {
             <Text>
               {"\n"}
               {slamResult}
+            </Text>
+            <Button
+              onPress={onPressGetFlurryResult} 
+              title="Flurry"
+              color="#841584"
+              accessibilityLabel="Flurry"
+            />
+            <Text>
+              {"\n"}
+              {flurryResult}
             </Text>
           </SafeAreaView>
           <Section title="Debug">

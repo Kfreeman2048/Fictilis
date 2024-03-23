@@ -23,13 +23,23 @@ const tokens = createTokens ({
   size,
   space,
   zIndex,
-  color,
+  color:{
+    darkRed: '#550000',
+    lightRed: '#ff0000',
+  },
   radius,
 });
 
 const appConfig = createTamagui({
   config,
-  themes,
+  themes: {
+    dark: {
+      red: tokens.color.darkRed,
+    },
+    light: {
+      red: tokens.color.lightRed,
+    }
+  },
   tokens,
 });
 

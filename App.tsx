@@ -26,9 +26,15 @@ import {
   LearnMoreLinks,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { TamaguiProvider, View } from '@tamagui/core';
+import { 
+  TamaguiProvider,
+  View,
+  createTokens,
+  createTamagui,
+  Theme,
+} from '@tamagui/core';
 
-import config from './tamagui.config'
+import appConfig from './tamagui.config'
 
 import{
   dieRoller,
@@ -73,11 +79,11 @@ function App(): React.JSX.Element {
   const [wDamage, setWDamage] = useState('');
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
   const [result, setResult] = useState(0);
-  const isDarkMode = useColorScheme() === 'dark';
+  //const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
+  /*const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  };*/
 
   const onPressRollD20 = () => {
     setDieValue(dieRoller(20));
@@ -87,8 +93,9 @@ function App(): React.JSX.Element {
     setResult(slam(Number(deflectAndDodge), Number(wDamage)));
   };
 
+/*
   return (
-    <TamaguiProvider config={config}>
+    <TamaguiProvider config={appConfig} defaultTheme="light">
       <SafeAreaView style={backgroundStyle}>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -98,10 +105,9 @@ function App(): React.JSX.Element {
           contentInsetAdjustmentBehavior="automatic"
           style={backgroundStyle}>
           <Header />
-          <View
-            style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
+          <View backgroundColor="$red" />
+          <Theme name="dark">
+            <View backgroundColor="$red" />
             <Section title="Roll Dice">
               <Button
                 onPress={onPressRollD20} 
@@ -147,11 +153,58 @@ function App(): React.JSX.Element {
               Read the docs to discover what to do next:
             </Section>
             <LearnMoreLinks />
-          </View>
+          </Theme>
         </ScrollView>
       </SafeAreaView>
     </TamaguiProvider>
   );
+}
+*/
+
+  return (
+    <TamaguiProvider config={appConfig} defaultTheme="dark">
+      <View backgroundColor="$red" />
+          <Theme name="light">
+            <View backgroundColor="$red" />
+            <Button
+                onPress={onPressRollD20} 
+                title="Roll d20"
+                color="#841584"
+                accessibilityLabel="Roll a 20 sided die."
+              />
+              <Text>
+                {"\n"}
+                {dieValue}
+              </Text>
+            <SafeAreaView>
+              <TextInput
+                style={styles.input}
+                onChangeText={setDeflectAndDodge}
+                value={deflectAndDodge}
+                placeholder="Target's Deflect and Dodge"
+                keyboardType="numeric"
+              />
+              <TextInput
+                style={styles.input}
+                onChangeText={setWDamage}
+                value={wDamage}
+                placeholder="Your Weapon Damage"
+                keyboardType="numeric"
+              />
+            <Button
+              onPress={onPressGetResult} 
+              title="Slam"
+              color="#841584"
+              accessibilityLabel="Slam"
+            />
+            <Text>
+              {"\n"}
+              {result}
+            </Text>
+          </SafeAreaView>
+        </Theme>
+      </TamaguiProvider>
+    );
 }
 
 const styles = StyleSheet.create({

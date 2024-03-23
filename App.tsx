@@ -62,7 +62,7 @@ function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
   const [wDamage, setWDamage] = useState('');
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
-  const [result, setResult] = useState(0);
+  const [slamResult, setSlamResult] = useState(0);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -73,8 +73,8 @@ function App(): React.JSX.Element {
     setDieValue(dieRoller(20));
   };
 
-  const onPressGetResult = () => {
-    setResult(slam(Number(deflectAndDodge), Number(wDamage)));
+  const onPressGetSlamResult = () => {
+    setSlamResult(slam(Number(deflectAndDodge), Number(wDamage)));
   };
 
   return (
@@ -119,14 +119,14 @@ function App(): React.JSX.Element {
               keyboardType="numeric"
             />
            <Button
-              onPress={onPressGetResult} 
+              onPress={onPressGetSlamResult} 
               title="Slam"
               color="#841584"
               accessibilityLabel="Slam"
             />
             <Text>
               {"\n"}
-              {result}
+              {slamResult}
             </Text>
           </SafeAreaView>
           <Section title="Debug">

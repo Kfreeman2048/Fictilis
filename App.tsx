@@ -27,6 +27,7 @@ import{
 import{
   slam,
   flurry,
+  icicleSpear,
 } from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
@@ -65,6 +66,7 @@ function App(): React.JSX.Element {
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
   const [slamResult, setSlamResult] = useState(0);
   const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
+  const [icicleSpearResult, setIcicleSpearResult] = useState(0);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -81,6 +83,10 @@ function App(): React.JSX.Element {
 
   const onPressGetFlurryResult = () => {
     setFlurryResult(flurry(Number(deflectAndDodge), Number(wDamage)));
+  };
+
+  const onPressGetIcicleSpearResult = () => {
+    setIcicleSpearResult(icicleSpear(Number(deflectAndDodge), Number(wDamage)));
   };
 
   return (
@@ -143,6 +149,16 @@ function App(): React.JSX.Element {
             <Text>
               {"\n"}
               {flurryResult}
+            </Text>
+            <Button
+              onPress={onPressGetIcicleSpearResult} 
+              title="IcicleSpear"
+              color="#841584"
+              accessibilityLabel="IcicleSpear"
+            />
+            <Text>
+              {"\n"}
+              {icicleSpearResult}
             </Text>
           </SafeAreaView>
           <Section title="Debug">

@@ -49,3 +49,7 @@ export function cleave(DaD: number, wDamage: number, targets: number): number[] 
 export function parryingStrike(DaD: number, wDamage: number): number {
     return (wDamage * hit(DaD, 8));
 };
+
+export function dragIntoDarkness(DaD: number, wDamage: number): number {
+    return (wDamage * hit(DaD, 8));
+};

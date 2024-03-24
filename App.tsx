@@ -30,6 +30,7 @@ import{
   icicleSpear,
   cleave,
   parryingStrike,
+  dragIntoDarkness,
 } from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
@@ -71,6 +72,7 @@ function App(): React.JSX.Element {
   const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
   const [icicleSpearResult, setIcicleSpearResult] = useState(0);
   const [parryingStrikeResult, setParryingStrikeResult] = useState(0);
+  const [dragIntoDarknessResult, setDragIntoDarknessResult] = useState(0);
   const [cleaveResult, setCleaveResult] =useState([0, 0]);
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -96,6 +98,10 @@ function App(): React.JSX.Element {
 
   const onPressGetParryingStrikeResult = () => {
     setParryingStrikeResult(parryingStrike(Number(deflectAndDodge), Number(wDamage)));
+  };
+
+  const onPressGetDragIntoDarknessResult = () => {
+    setDragIntoDarknessResult(dragIntoDarkness(Number(deflectAndDodge), Number(wDamage)));
   };
 
   const onPressGetCleaveResult = () => {
@@ -182,6 +188,16 @@ function App(): React.JSX.Element {
             <Text>
               {"\n"}
               {parryingStrikeResult}
+            </Text>
+            <Button
+              onPress={onPressGetDragIntoDarknessResult} 
+              title="DragIntoDarkness"
+              color="#841584"
+              accessibilityLabel="DragIntoDarkness"
+            />
+            <Text>
+              {"\n"}
+              {dragIntoDarknessResult}
             </Text>
             <TextInput
               style={styles.input}

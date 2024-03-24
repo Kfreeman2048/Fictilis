@@ -41,3 +41,12 @@ export function icicleSpear(DaD: number, wDamage: number): number {
 export function flurry(DaD: number, wDamage: number): number[] {
     return new Array (wDamage * hit(DaD, 8), wDamage * hit(DaD, 8), wDamage * hit(DaD, 8))
 };
+
+export function cleave(DaD: number, wDamage: number, targets: number): number[] {
+    if (targets === 2) {
+        return new Array (wDamage * hit(DaD, 8), wDamage * hit(DaD, 8))
+    }
+    else {
+        return new Array (wDamage * hit(DaD, 8), 0)
+    }
+};

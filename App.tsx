@@ -28,6 +28,7 @@ import{
   slam,
   flurry,
   icicleSpear,
+  cleave,
 } from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
@@ -64,9 +65,11 @@ function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
   const [wDamage, setWDamage] = useState('');
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
+  const [targets, setTargets] = useState('');
   const [slamResult, setSlamResult] = useState(0);
   const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
   const [icicleSpearResult, setIcicleSpearResult] = useState(0);
+  const [cleaveResult, setCleaveResult] =useState([0, 0]);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -87,6 +90,10 @@ function App(): React.JSX.Element {
 
   const onPressGetIcicleSpearResult = () => {
     setIcicleSpearResult(icicleSpear(Number(deflectAndDodge), Number(wDamage)));
+  };
+
+  const onPressGetCleaveResult = () => {
+    setCleaveResult(cleave(Number(deflectAndDodge), Number(wDamage), Number(targets)));
   };
 
   return (
@@ -159,6 +166,23 @@ function App(): React.JSX.Element {
             <Text>
               {"\n"}
               {icicleSpearResult}
+            </Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={setTargets}
+              value={targets}
+              placeholder="Number of Targets for the Attack"
+              keyboardType="numeric"
+            />
+            <Button
+              onPress={onPressGetCleaveResult} 
+              title="Cleave"
+              color="#841584"
+              accessibilityLabel="Cleave"
+            />
+            <Text>
+              {"\n"}
+              {cleaveResult}
             </Text>
           </SafeAreaView>
           <Section title="Debug">

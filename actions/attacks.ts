@@ -45,3 +45,7 @@ export function cleave(DaD: number, wDamage: number, targets: number): number[] 
         return new Array (wDamage * hit(DaD, 8), 0)
     }
 };
+
+export function parryingStrike(DaD: number, wDamage: number): number {
+    return (wDamage * hit(DaD, 8));
+};

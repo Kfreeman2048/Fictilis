@@ -29,6 +29,7 @@ import{
   flurry,
   icicleSpear,
   cleave,
+  parryingStrike,
 } from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
@@ -69,6 +70,7 @@ function App(): React.JSX.Element {
   const [slamResult, setSlamResult] = useState(0);
   const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
   const [icicleSpearResult, setIcicleSpearResult] = useState(0);
+  const [parryingStrikeResult, setParryingStrikeResult] = useState(0);
   const [cleaveResult, setCleaveResult] =useState([0, 0]);
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -90,6 +92,10 @@ function App(): React.JSX.Element {
 
   const onPressGetIcicleSpearResult = () => {
     setIcicleSpearResult(icicleSpear(Number(deflectAndDodge), Number(wDamage)));
+  };
+
+  const onPressGetParryingStrikeResult = () => {
+    setParryingStrikeResult(parryingStrike(Number(deflectAndDodge), Number(wDamage)));
   };
 
   const onPressGetCleaveResult = () => {
@@ -166,6 +172,16 @@ function App(): React.JSX.Element {
             <Text>
               {"\n"}
               {icicleSpearResult}
+            </Text>
+            <Button
+              onPress={onPressGetParryingStrikeResult} 
+              title="ParryingStrike"
+              color="#841584"
+              accessibilityLabel="ParryingStrike"
+            />
+            <Text>
+              {"\n"}
+              {parryingStrikeResult}
             </Text>
             <TextInput
               style={styles.input}

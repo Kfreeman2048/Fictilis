@@ -31,6 +31,7 @@ import{
   cleave,
   parryingStrike,
   dragIntoDarkness,
+  shoot,
 } from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
@@ -73,6 +74,7 @@ function App(): React.JSX.Element {
   const [icicleSpearResult, setIcicleSpearResult] = useState(0);
   const [parryingStrikeResult, setParryingStrikeResult] = useState(0);
   const [dragIntoDarknessResult, setDragIntoDarknessResult] = useState(0);
+  const [shootResult, setShootResult] =useState([0, 0]);
   const [cleaveResult, setCleaveResult] =useState([0, 0]);
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -102,6 +104,10 @@ function App(): React.JSX.Element {
 
   const onPressGetDragIntoDarknessResult = () => {
     setDragIntoDarknessResult(dragIntoDarkness(Number(deflectAndDodge), Number(wDamage)));
+  };
+
+  const onPressGetShootResult = () => {
+    setShootResult(shoot(Number(deflectAndDodge), Number(wDamage)));
   };
 
   const onPressGetCleaveResult = () => {
@@ -198,6 +204,16 @@ function App(): React.JSX.Element {
             <Text>
               {"\n"}
               {dragIntoDarknessResult}
+            </Text>
+            <Button
+              onPress={onPressGetShootResult} 
+              title="Shoot"
+              color="#841584"
+              accessibilityLabel="Shoot"
+            />
+            <Text>
+              {"\n"}
+              {shootResult}
             </Text>
             <TextInput
               style={styles.input}

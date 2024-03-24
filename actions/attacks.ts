@@ -17,12 +17,7 @@ function hit(DaD: number, target: number): number {
 };
 
 export function slam(DaD: number, wDamage: number): number {
-    if (accuracyCheck(dieRoller(20), 8, DaD)) {
-        return (wDamage * 2);
-    }
-    else {
-        return 0;
-    }
+    return (wDamage * 2 * hit(DaD, 8));
 };
 
 export function icicleSpear(DaD: number, wDamage: number): number {

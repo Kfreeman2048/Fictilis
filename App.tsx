@@ -17,13 +17,6 @@ import {
   ThemeProvider,
 } from 'react-native-elements';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-} from 'react-native/Libraries/NewAppScreen';
-
 import{
   dieRoller,
 } from './dice_roller/rollDie.ts';
@@ -38,36 +31,6 @@ import{
   shoot,
 } from './actions/attacks.ts';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
 function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
   const [wDamage, setWDamage] = useState('');
@@ -80,11 +43,6 @@ function App(): React.JSX.Element {
   const [dragIntoDarknessResult, setDragIntoDarknessResult] = useState(0);
   const [shootResult, setShootResult] =useState([0, 0]);
   const [cleaveResult, setCleaveResult] =useState([0, 0]);
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   const onPressRollD20 = () => {
     setDieValue(dieRoller(20));
@@ -120,19 +78,10 @@ function App(): React.JSX.Element {
 
   return (
     <ThemeProvider>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
+      <SafeAreaView style={styles.pageIndent}>
         <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
-          <View
-            style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-            <Section title="Roll Dice">
+          contentInsetAdjustmentBehavior="automatic">
+          <View>
               <SafeAreaView>
                 <Button
                   onPress={onPressRollD20} 
@@ -228,7 +177,6 @@ function App(): React.JSX.Element {
                   {cleaveResult}
                 </Text>
               </SafeAreaView>
-            </Section>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -237,18 +185,8 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  pageIndent: {
+    margin: 20,
   },
   highlight: {
     fontWeight: '700',

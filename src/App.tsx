@@ -19,14 +19,14 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import {
+/*import {
   Colors,
   DebugInstructions,
   Header,
   LearnMoreLinks,
-} from 'react-native/Libraries/NewAppScreen';
+} from 'react-native/Libraries/NewAppScreen';*/
 
-import { 
+import {
   TamaguiProvider,
   View,
   createTokens,
@@ -34,21 +34,17 @@ import {
   Theme,
 } from '@tamagui/core';
 
-import appConfig from './tamagui.config'
+import appConfig from './tamagui.config';
 
-import{
-  dieRoller,
-} from './dice_roller/rollDie.ts';
+import {dieRoller} from './dice_roller/rollDie.ts';
 
-import{
-  slam,
-} from './actions/attacks.ts';
+import {slam} from './actions/attacks.ts';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+/*function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -72,7 +68,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
       </Text>
     </View>
   );
-}
+}*/
 
 function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
@@ -93,7 +89,7 @@ function App(): React.JSX.Element {
     setResult(slam(Number(deflectAndDodge), Number(wDamage)));
   };
 
-/*
+  /*
   return (
     <TamaguiProvider config={appConfig} defaultTheme="light">
       <SafeAreaView style={backgroundStyle}>
@@ -110,7 +106,7 @@ function App(): React.JSX.Element {
             <View backgroundColor="$red" />
             <Section title="Roll Dice">
               <Button
-                onPress={onPressRollD20} 
+                onPress={onPressRollD20}
                 title="Roll d20"
                 color="#841584"
                 accessibilityLabel="Roll a 20 sided die."
@@ -136,7 +132,7 @@ function App(): React.JSX.Element {
                 keyboardType="numeric"
               />
             <Button
-                onPress={onPressGetResult} 
+                onPress={onPressGetResult}
                 title="Slam"
                 color="#841584"
                 accessibilityLabel="Slam"
@@ -164,47 +160,47 @@ function App(): React.JSX.Element {
   return (
     <TamaguiProvider config={appConfig} defaultTheme="dark">
       <View backgroundColor="$red" />
-          <Theme name="light">
-            <View backgroundColor="$red" />
-            <Button
-                onPress={onPressRollD20} 
-                title="Roll d20"
-                color="#841584"
-                accessibilityLabel="Roll a 20 sided die."
-              />
-              <Text>
-                {"\n"}
-                {dieValue}
-              </Text>
-            <SafeAreaView>
-              <TextInput
-                style={styles.input}
-                onChangeText={setDeflectAndDodge}
-                value={deflectAndDodge}
-                placeholder="Target's Deflect and Dodge"
-                keyboardType="numeric"
-              />
-              <TextInput
-                style={styles.input}
-                onChangeText={setWDamage}
-                value={wDamage}
-                placeholder="Your Weapon Damage"
-                keyboardType="numeric"
-              />
-            <Button
-              onPress={onPressGetResult} 
-              title="Slam"
-              color="#841584"
-              accessibilityLabel="Slam"
-            />
-            <Text>
-              {"\n"}
-              {result}
-            </Text>
-          </SafeAreaView>
-        </Theme>
-      </TamaguiProvider>
-    );
+      <Theme name="light">
+        <View backgroundColor="$red" />
+        <Button
+          onPress={onPressRollD20}
+          title="Roll d20"
+          color="#841584"
+          accessibilityLabel="Roll a 20 sided die."
+        />
+        <Text>
+          {'\n'}
+          {dieValue}
+        </Text>
+        <SafeAreaView>
+          <TextInput
+            style={styles.input}
+            onChangeText={setDeflectAndDodge}
+            value={deflectAndDodge}
+            placeholder="Target's Deflect and Dodge"
+            keyboardType="numeric"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={setWDamage}
+            value={wDamage}
+            placeholder="Your Weapon Damage"
+            keyboardType="numeric"
+          />
+          <Button
+            onPress={onPressGetResult}
+            title="Slam"
+            color="#841584"
+            accessibilityLabel="Slam"
+          />
+          <Text>
+            {'\n'}
+            {result}
+          </Text>
+        </SafeAreaView>
+      </Theme>
+    </TamaguiProvider>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -3,7 +3,6 @@ import {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   TextInput,
-  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -12,6 +11,11 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+
+import {
+  Button,
+  ThemeProvider,
+} from 'react-native-elements';
 
 import {
   Colors,
@@ -115,134 +119,120 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Roll Dice">
-            <Button
-              onPress={onPressRollD20} 
-              title="Roll d20"
-              color="#841584"
-              accessibilityLabel="Roll a 20 sided die."
-            />
-            <Text>
-              {"\n"}
-              {dieValue}
-            </Text>
-          </Section>
-          <SafeAreaView>
-            <TextInput
-              style={styles.input}
-              onChangeText={setDeflectAndDodge}
-              value={deflectAndDodge}
-              placeholder="Target's Deflect and Dodge"
-              keyboardType="numeric"
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={setWDamage}
-              value={wDamage}
-              placeholder="Your Weapon Damage"
-              keyboardType="numeric"
-            />
-           <Button
-              onPress={onPressGetSlamResult} 
-              title="Slam"
-              color="#841584"
-              accessibilityLabel="Slam"
-            />
-            <Text>
-              {"\n"}
-              {slamResult}
-            </Text>
-            <Button
-              onPress={onPressGetFlurryResult} 
-              title="Flurry"
-              color="#841584"
-              accessibilityLabel="Flurry"
-            />
-            <Text>
-              {"\n"}
-              {flurryResult}
-            </Text>
-            <Button
-              onPress={onPressGetIcicleSpearResult} 
-              title="IcicleSpear"
-              color="#841584"
-              accessibilityLabel="IcicleSpear"
-            />
-            <Text>
-              {"\n"}
-              {icicleSpearResult}
-            </Text>
-            <Button
-              onPress={onPressGetParryingStrikeResult} 
-              title="ParryingStrike"
-              color="#841584"
-              accessibilityLabel="ParryingStrike"
-            />
-            <Text>
-              {"\n"}
-              {parryingStrikeResult}
-            </Text>
-            <Button
-              onPress={onPressGetDragIntoDarknessResult} 
-              title="DragIntoDarkness"
-              color="#841584"
-              accessibilityLabel="DragIntoDarkness"
-            />
-            <Text>
-              {"\n"}
-              {dragIntoDarknessResult}
-            </Text>
-            <Button
-              onPress={onPressGetShootResult} 
-              title="Shoot"
-              color="#841584"
-              accessibilityLabel="Shoot"
-            />
-            <Text>
-              {"\n"}
-              {shootResult}
-            </Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={setTargets}
-              value={targets}
-              placeholder="Number of Targets for the Attack"
-              keyboardType="numeric"
-            />
-            <Button
-              onPress={onPressGetCleaveResult} 
-              title="Cleave"
-              color="#841584"
-              accessibilityLabel="Cleave"
-            />
-            <Text>
-              {"\n"}
-              {cleaveResult}
-            </Text>
-          </SafeAreaView>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <ThemeProvider>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={backgroundStyle}>
+          <View
+            style={{
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            }}>
+            <Section title="Roll Dice">
+              <SafeAreaView>
+                <Button
+                  onPress={onPressRollD20} 
+                  title="Roll d20"
+                  accessibilityLabel="Roll a 20 sided die."
+                />
+                <Text>
+                  {"\n"}
+                  {dieValue}
+                </Text>
+                <TextInput
+                  style={styles.input}
+                  onChangeText={setDeflectAndDodge}
+                  value={deflectAndDodge}
+                  placeholder="Target's Deflect and Dodge"
+                  keyboardType="numeric"
+                />
+                <TextInput
+                  style={styles.input}
+                  onChangeText={setWDamage}
+                  value={wDamage}
+                  placeholder="Your Weapon Damage"
+                  keyboardType="numeric"
+                />
+              <Button
+                  onPress={onPressGetSlamResult} 
+                  title="Slam"
+                  accessibilityLabel="Slam"
+                />
+                <Text>
+                  {"\n"}
+                  {slamResult}
+                </Text>
+                <Button
+                  onPress={onPressGetFlurryResult} 
+                  title="Flurry"
+                  accessibilityLabel="Flurry"
+                />
+                <Text>
+                  {"\n"}
+                  {flurryResult}
+                </Text>
+                <Button
+                  onPress={onPressGetIcicleSpearResult} 
+                  title="IcicleSpear"
+                  accessibilityLabel="IcicleSpear"
+                />
+                <Text>
+                  {"\n"}
+                  {icicleSpearResult}
+                </Text>
+                <Button
+                  onPress={onPressGetParryingStrikeResult} 
+                  title="ParryingStrike"
+                  accessibilityLabel="ParryingStrike"
+                />
+                <Text>
+                  {"\n"}
+                  {parryingStrikeResult}
+                </Text>
+                <Button
+                  onPress={onPressGetDragIntoDarknessResult} 
+                  title="DragIntoDarkness"
+                  accessibilityLabel="DragIntoDarkness"
+                />
+                <Text>
+                  {"\n"}
+                  {dragIntoDarknessResult}
+                </Text>
+                <Button
+                  onPress={onPressGetShootResult} 
+                  title="Shoot"
+                  accessibilityLabel="Shoot"
+                />
+                <Text>
+                  {"\n"}
+                  {shootResult}
+                </Text>
+                <TextInput
+                  style={styles.input}
+                  onChangeText={setTargets}
+                  value={targets}
+                  placeholder="Number of Targets for the Attack"
+                  keyboardType="numeric"
+                />
+                <Button
+                  onPress={onPressGetCleaveResult} 
+                  title="Cleave"
+                  accessibilityLabel="Cleave"
+                />
+                <Text>
+                  {"\n"}
+                  {cleaveResult}
+                </Text>
+              </SafeAreaView>
+            </Section>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
 

@@ -15,6 +15,8 @@ https://learn.microsoft.com/en-us/windows/dev-environment/javascript/react-nativ
 6. Ensure you are on the main branch with the terminal command:
    `git checkout -b main`
 
+7. Run `npm install` in terminal to install node_modules locally.
+
 For [Troubleshooting](https://reactnative.dev/docs/troubleshooting)
 
 To run android: npx react-native run-android

@@ -19,4 +19,4 @@ https://learn.microsoft.com/en-us/windows/dev-environment/javascript/react-nativ
 
 For [Troubleshooting](https://reactnative.dev/docs/troubleshooting)
 
-To run android: npx react-native run-android
+To run android: `npx react-native run-android`

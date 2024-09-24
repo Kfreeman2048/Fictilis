@@ -28,8 +28,6 @@ import{
   shoot,
 } from './actions/attacks.ts';
 
-import Grid from './Grid.tsx';
-
 function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
   const [wDamage, setWDamage] = useState('');
@@ -81,102 +79,101 @@ function App(): React.JSX.Element {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic">
           <View>
-            <SafeAreaView>
-              <Grid />
+              <SafeAreaView>
+                <Button
+                  onPress={onPressRollD20} 
+                  title="Roll d20"
+                  accessibilityLabel="Roll a 20 sided die."
+                />
+                <Text>
+                  {"\n"}
+                  {dieValue}
+                </Text>
+                <TextInput
+                  style={styles.input}
+                  onChangeText={setDeflectAndDodge}
+                  value={deflectAndDodge}
+                  placeholder="Target's Deflect and Dodge"
+                  keyboardType="numeric"
+                />
+                <TextInput
+                  style={styles.input}
+                  onChangeText={setWDamage}
+                  value={wDamage}
+                  placeholder="Your Weapon Damage"
+                  keyboardType="numeric"
+                />
               <Button
-                onPress={onPressRollD20} 
-                title="Roll d20"
-                accessibilityLabel="Roll a 20 sided die."
-              />
-              <Text>
-                {"\n"}
-                {dieValue}
-              </Text>
-              <TextInput
-                style={styles.input}
-                onChangeText={setDeflectAndDodge}
-                value={deflectAndDodge}
-                placeholder="Target's Deflect and Dodge"
-                keyboardType="numeric"
-              />
-              <TextInput
-                style={styles.input}
-                onChangeText={setWDamage}
-                value={wDamage}
-                placeholder="Your Weapon Damage"
-                keyboardType="numeric"
-              />
-            <Button
-                onPress={onPressGetSlamResult} 
-                title="Slam"
-                accessibilityLabel="Slam"
-              />
-              <Text>
-                {"\n"}
-                {slamResult}
-              </Text>
-              <Button
-                onPress={onPressGetFlurryResult} 
-                title="Flurry"
-                accessibilityLabel="Flurry"
-              />
-              <Text>
-                {"\n"}
-                {flurryResult}
-              </Text>
-              <Button
-                onPress={onPressGetIcicleSpearResult} 
-                title="IcicleSpear"
-                accessibilityLabel="IcicleSpear"
-              />
-              <Text>
-                {"\n"}
-                {icicleSpearResult}
-              </Text>
-              <Button
-                onPress={onPressGetParryingStrikeResult} 
-                title="ParryingStrike"
-                accessibilityLabel="ParryingStrike"
-              />
-              <Text>
-                {"\n"}
-                {parryingStrikeResult}
-              </Text>
-              <Button
-                onPress={onPressGetDragIntoDarknessResult} 
-                title="DragIntoDarkness"
-                accessibilityLabel="DragIntoDarkness"
-              />
-              <Text>
-                {"\n"}
-                {dragIntoDarknessResult}
-              </Text>
-              <Button
-                onPress={onPressGetShootResult} 
-                title="Shoot"
-                accessibilityLabel="Shoot"
-              />
-              <Text>
-                {"\n"}
-                {shootResult}
-              </Text>
-              <TextInput
-                style={styles.input}
-                onChangeText={setTargets}
-                value={targets}
-                placeholder="Number of Targets for the Attack"
-                keyboardType="numeric"
-              />
-              <Button
-                onPress={onPressGetCleaveResult} 
-                title="Cleave"
-                accessibilityLabel="Cleave"
-              />
-              <Text>
-                {"\n"}
-                {cleaveResult}
-              </Text>
-            </SafeAreaView>
+                  onPress={onPressGetSlamResult} 
+                  title="Slam"
+                  accessibilityLabel="Slam"
+                />
+                <Text>
+                  {"\n"}
+                  {slamResult}
+                </Text>
+                <Button
+                  onPress={onPressGetFlurryResult} 
+                  title="Flurry"
+                  accessibilityLabel="Flurry"
+                />
+                <Text>
+                  {"\n"}
+                  {flurryResult}
+                </Text>
+                <Button
+                  onPress={onPressGetIcicleSpearResult} 
+                  title="IcicleSpear"
+                  accessibilityLabel="IcicleSpear"
+                />
+                <Text>
+                  {"\n"}
+                  {icicleSpearResult}
+                </Text>
+                <Button
+                  onPress={onPressGetParryingStrikeResult} 
+                  title="ParryingStrike"
+                  accessibilityLabel="ParryingStrike"
+                />
+                <Text>
+                  {"\n"}
+                  {parryingStrikeResult}
+                </Text>
+                <Button
+                  onPress={onPressGetDragIntoDarknessResult} 
+                  title="DragIntoDarkness"
+                  accessibilityLabel="DragIntoDarkness"
+                />
+                <Text>
+                  {"\n"}
+                  {dragIntoDarknessResult}
+                </Text>
+                <Button
+                  onPress={onPressGetShootResult} 
+                  title="Shoot"
+                  accessibilityLabel="Shoot"
+                />
+                <Text>
+                  {"\n"}
+                  {shootResult}
+                </Text>
+                <TextInput
+                  style={styles.input}
+                  onChangeText={setTargets}
+                  value={targets}
+                  placeholder="Number of Targets for the Attack"
+                  keyboardType="numeric"
+                />
+                <Button
+                  onPress={onPressGetCleaveResult} 
+                  title="Cleave"
+                  accessibilityLabel="Cleave"
+                />
+                <Text>
+                  {"\n"}
+                  {cleaveResult}
+                </Text>
+              </SafeAreaView>
           </View>
         </ScrollView>
       </SafeAreaView>

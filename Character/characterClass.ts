@@ -1,4 +1,6 @@
 class Character {
+    characterName: string;
+    playerName: string;
     maxHealth: number;
     health: number;
     maxEnergy: number;
@@ -7,7 +9,9 @@ class Character {
     damageReduction: number;
     species: string;
     deathCondition: string;
-    constructor(maxHealth: number, health: number, maxEnergy: number, currentEnergy: number, deflectAndDodge: number, damageReduction: number, species: string, deathCondition: string) {
+    constructor(characterName: string, playerName: string, maxHealth: number, health: number, maxEnergy: number, currentEnergy: number, deflectAndDodge: number, damageReduction: number, species: string, deathCondition: string) {
+        this.characterName = characterName;
+        this.playerName = playerName;
         this.maxHealth = maxHealth;
         this.health = health;
         this.maxEnergy = maxEnergy;

@@ -1,15 +1,15 @@
 class Character {
     constructor(
-        characterName: string,
-        playerName: string,
-        maxHealth: number,
-        currentHealth: number,
-        maxEnergy: number,
-        currentEnergy: number,
-        deflectAndDodge: number,
-        damageReduction: number,
-        species: string,
-        deathCondition: string
+        private characterName: string,
+        private playerName: string,
+        private maxHealth: number,
+        private currentHealth: number,
+        private maxEnergy: number,
+        private currentEnergy: number,
+        private deflectAndDodge: number,
+        private damageReduction: number,
+        private species: string,
+        private deathCondition: string
     ) {}
 };
 export default Character;

@@ -1,26 +1,16 @@
 class Character {
-    characterName: string;
-    playerName: string;
-    maxHealth: number;
-    currentHealth: number;
-    maxEnergy: number;
-    currentEnergy: number;
-    deflectAndDodge: number;
-    damageReduction: number;
-    species: string;
-    deathCondition: string;
-    constructor(characterName: string, playerName: string, maxHealth: number, currentHealth: number, maxEnergy: number, currentEnergy: number, deflectAndDodge: number, damageReduction: number, species: string, deathCondition: string) {
-        this.characterName = characterName;
-        this.playerName = playerName;
-        this.maxHealth = maxHealth;
-        this.currentHealth = currentHealth;
-        this.maxEnergy = maxEnergy;
-        this.currentEnergy = currentEnergy;
-        this.deflectAndDodge = deflectAndDodge;
-        this.damageReduction = damageReduction;
-        this.species = species;
-        this.deathCondition = deathCondition;
-    }
+    constructor(
+        characterName: string,
+        playerName: string,
+        maxHealth: number,
+        currentHealth: number,
+        maxEnergy: number,
+        currentEnergy: number,
+        deflectAndDodge: number,
+        damageReduction: number,
+        species: string,
+        deathCondition: string
+    ) {}
 };
 export default Character;
 /*

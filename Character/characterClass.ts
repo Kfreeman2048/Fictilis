@@ -1,4 +1,4 @@
-class Character {
+class CharacterClass {
     constructor(
         private characterName: string,
         private playerName: string,
@@ -12,7 +12,7 @@ class Character {
         private deathCondition: string
     ) {}
 };
-export default Character;
+export default CharacterClass;
 /*
     TODO:
     add;

@@ -14,15 +14,8 @@ class Character {
 };
 export default Character;
 /*
-    Character attributes;
-    num     Max Health
-    num     Health (HP)
-    num     Max energy
-    num     Current energy
-    num     Deflect and Dodge (DaD)
-    num     Damage Reduction (DR)
-    string  Species
-    String  Death Condition
+    TODO:
+    add;
     array?  Active Bricks
     array?  Passive Bricks
     array?  Movement Bricks

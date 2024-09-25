@@ -1,7 +1,7 @@
 class CharacterClass {
     constructor(
-        private characterName: string,
-        private playerName: string,
+        public characterName: string,
+        public playerName: string,
         private maxHealth: number,
         private currentHealth: number,
         private maxEnergy: number,

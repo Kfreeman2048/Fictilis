@@ -28,6 +28,8 @@ import{
   shoot,
 } from './actions/attacks.ts';
 
+import Character from './Character.tsx';
+
 function App(): React.JSX.Element {
   const [dieValue, setDieValue] = useState(0);
   const [wDamage, setWDamage] = useState('');
@@ -80,6 +82,7 @@ function App(): React.JSX.Element {
           contentInsetAdjustmentBehavior="automatic">
           <View>
             <SafeAreaView>
+              <Character />
               <Button
                 onPress={onPressRollD20} 
                 title="Roll d20"

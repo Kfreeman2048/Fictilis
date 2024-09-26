@@ -106,7 +106,7 @@ function App(): React.JSX.Element {
                 placeholder="Your Weapon Damage"
                 keyboardType="numeric"
               />
-            <Button
+              <Button
                 onPress={onPressGetSlamResult} 
                 title="Slam"
                 accessibilityLabel="Slam"

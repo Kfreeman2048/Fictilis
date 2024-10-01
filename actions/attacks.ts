@@ -16,8 +16,13 @@ function hit(DaD: number, target: number): number {
     }
 };
 
-export function slam(DaD: number, wDamage: number): number {
-    return (wDamage * 2 * hit(DaD, 8));
+export function slam(DaD: number, wDamage: number): number | string {
+    if (hit(DaD, 8) === 0) {
+        return "Miss";
+    }
+    else {
+        return (wDamage * 2);
+    }
 };
 
 export function icicleSpear(DaD: number, wDamage: number): number {

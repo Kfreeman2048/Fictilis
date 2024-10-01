@@ -35,7 +35,7 @@ function App(): React.JSX.Element {
   const [wDamage, setWDamage] = useState('');
   const [deflectAndDodge, setDeflectAndDodge] = useState('');
   const [targets, setTargets] = useState('');
-  const [slamResult, setSlamResult] = useState(0);
+  const [slamResult, setSlamResult] = useState<number | string>(0);
   const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
   const [icicleSpearResult, setIcicleSpearResult] = useState(0);
   const [parryingStrikeResult, setParryingStrikeResult] = useState(0);

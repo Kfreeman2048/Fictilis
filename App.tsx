@@ -37,9 +37,9 @@ function App(): React.JSX.Element {
   const [targets, setTargets] = useState('');
   const [slamResult, setSlamResult] = useState<number | string>(0);
   const [flurryResult, setFlurryResult] =useState([0, 0, 0]);
-  const [icicleSpearResult, setIcicleSpearResult] = useState(0);
-  const [parryingStrikeResult, setParryingStrikeResult] = useState(0);
-  const [dragIntoDarknessResult, setDragIntoDarknessResult] = useState(0);
+  const [icicleSpearResult, setIcicleSpearResult] = useState<number | string>(0);
+  const [parryingStrikeResult, setParryingStrikeResult] = useState<number | string>(0);
+  const [dragIntoDarknessResult, setDragIntoDarknessResult] = useState<number | string>(0);
   const [shootResult, setShootResult] =useState([0, 0]);
   const [cleaveResult, setCleaveResult] =useState([0, 0]);
 

@@ -25,7 +25,7 @@ export function slam(DaD: number, wDamage: number): number | string {
     }
 };
 
-export function icicleSpear(DaD: number, wDamage: number): number {
+export function icicleSpear(DaD: number, wDamage: number): number | string {
     const accuracyValue = accuracyBeatBy5(dieRoller(20), 8, DaD);
     if (accuracyValue === 1) {
         return (wDamage);
@@ -34,7 +34,7 @@ export function icicleSpear(DaD: number, wDamage: number): number {
         return (wDamage + 8);
     }
     else {
-        return 0;
+        return "Miss";
     }
 };
 
@@ -51,12 +51,22 @@ export function cleave(DaD: number, wDamage: number, targets: number): number[] 
     }
 };
 
-export function parryingStrike(DaD: number, wDamage: number): number {
-    return (wDamage * hit(DaD, 8));
+export function parryingStrike(DaD: number, wDamage: number): number | string {
+    if (hit(DaD, 8) === 0) {
+        return "Miss";
+    }
+    else {
+        return (wDamage);
+    }
 };
 
-export function dragIntoDarkness(DaD: number, wDamage: number): number {
-    return (wDamage * hit(DaD, 8));
+export function dragIntoDarkness(DaD: number, wDamage: number): number | string {
+    if (hit(DaD, 8) === 0) {
+        return "Miss";
+    }
+    else { 
+        return (wDamage);
+    }
 };
 
 export function shoot(DaD: number, wDamage: number): number[] {

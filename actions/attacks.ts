@@ -5,25 +5,12 @@ import{
 import{
     accuracyCheck,
     accuracyBeatBy5,
-} from '../accuracy_checker/checkAccuracy.ts';
+} from '../AttackModules/checkAccuracy.ts';
 
-function hit(DaD: number, target: number): number {
-    if (accuracyCheck(dieRoller(20), target, DaD)) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
-};
-
-function basicAttack(DaD: number, wDamage: number, target: number): number | string {
-    if (hit(DaD, target) === 0) {
-        return "Miss";
-    }
-    else {
-        return (wDamage);
-    }
-};
+import{
+    hit,
+    basicAttack,
+} from '../AttackModules/damageModules.ts'; 
 
 export function slam(DaD: number, wDamage: number): number | string {
     if (hit(DaD, 8) === 0) {

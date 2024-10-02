@@ -16,6 +16,15 @@ function hit(DaD: number, target: number): number {
     }
 };
 
+function basicAttack(DaD: number, wDamage: number, target: number): number | string {
+    if (hit(DaD, target) === 0) {
+        return "Miss";
+    }
+    else {
+        return (wDamage);
+    }
+};
+
 export function slam(DaD: number, wDamage: number): number | string {
     if (hit(DaD, 8) === 0) {
         return "Miss";
@@ -38,8 +47,8 @@ export function icicleSpear(DaD: number, wDamage: number): number | string {
     }
 };
 
-export function flurry(DaD: number, wDamage: number): number[] {
-    return new Array (wDamage * hit(DaD, 8), wDamage * hit(DaD, 8), wDamage * hit(DaD, 8));
+export function flurry(DaD: number, wDamage: number): (number | string)[] {
+    return new Array (basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8));
 };
 
 export function cleave(DaD: number, wDamage: number, targets: number): number[] {

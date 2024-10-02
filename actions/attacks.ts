@@ -12,12 +12,7 @@ import{
 } from '../AttackModules/damageModules.ts'; 
 
 export function slam(DaD: number, wDamage: number): number | string {
-    if (hit(DaD, 8) === 0) {
-        return "Miss";
-    }
-    else {
-        return (wDamage * 2);
-    }
+    return basicAttack(DaD, wDamage * 2, 8);
 };
 
 export function icicleSpear(DaD: number, wDamage: number): number | string {
@@ -47,21 +42,11 @@ export function cleave(DaD: number, wDamage: number, targets: number): number[] 
 };
 
 export function parryingStrike(DaD: number, wDamage: number): number | string {
-    if (hit(DaD, 8) === 0) {
-        return "Miss";
-    }
-    else {
-        return (wDamage);
-    }
+    return basicAttack(DaD, wDamage, 8);
 };
 
 export function dragIntoDarkness(DaD: number, wDamage: number): number | string {
-    if (hit(DaD, 8) === 0) {
-        return "Miss";
-    }
-    else { 
-        return (wDamage);
-    }
+    return basicAttack(DaD, wDamage, 8);
 };
 
 export function shoot(DaD: number, wDamage: number): number[] {

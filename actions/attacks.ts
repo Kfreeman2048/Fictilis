@@ -32,12 +32,12 @@ export function flurry(DaD: number, wDamage: number): (number | string)[] {
     return new Array (basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8));
 };
 
-export function cleave(DaD: number, wDamage: number, targets: number): number[] {
+export function cleave(DaD: number, wDamage: number, targets: number): (number | string)[] | number | string {
     if (targets === 2) {
-        return new Array (wDamage * hit(DaD, 8), wDamage * hit(DaD, 8));
+        return new Array (basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8));
     }
     else {
-        return new Array (wDamage * hit(DaD, 8), 0);
+        return basicAttack(DaD, wDamage, 8);
     }
 };
 

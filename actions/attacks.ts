@@ -3,7 +3,6 @@ import{
 } from '../dice_roller/rollDie.ts';
   
 import{
-    accuracyCheck,
     accuracyBeatBy5,
 } from '../AttackModules/checkAccuracy.ts';
 

@@ -49,6 +49,6 @@ export function dragIntoDarkness(DaD: number, wDamage: number): number | string 
     return basicAttack(DaD, wDamage, 8);
 };
 
-export function shoot(DaD: number, wDamage: number): number[] {
-    return new Array (wDamage * hit(DaD, 8), wDamage * hit(DaD, 8));
+export function shoot(DaD: number, wDamage: number): (number | string)[] {
+    return new Array (basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8));
 };

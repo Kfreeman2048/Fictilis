@@ -36,8 +36,11 @@ export function cleave(DaD: number, wDamage: number, targets: number): (number |
     if (targets === 2) {
         return new Array (basicAttack(DaD, wDamage, 8), basicAttack(DaD, wDamage, 8));
     }
-    else {
+    if (targets === 1) {
         return basicAttack(DaD, wDamage, 8);
+    }
+    else {
+        return "Error, invalid number of targets";
     }
 };
 

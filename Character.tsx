@@ -27,7 +27,7 @@ function Character(): React.JSX.Element {
     const renderCharacters = () => {
         return characterList.map((char) => {
             return ( 
-                <SafeAreaView>
+                <SafeAreaView key={1}>
                     <TextInput
                         style={styles.input}
                         onChangeText={setInputCharacterName}

@@ -1,5 +1,6 @@
 class CharacterClass {
     constructor(
+        public id: number,
         public characterName: string,
         public playerName: string,
         private maxHealth: number,

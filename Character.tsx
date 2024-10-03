@@ -21,13 +21,13 @@ function Character(): React.JSX.Element {
     };
 
     const characterList = [
-        new CharacterClass(newCharacterName, "Kevin", 10, 10, 4, 4, 0, 0, "Human", "mortal"),
+        new CharacterClass(1, newCharacterName, "Kevin", 10, 10, 4, 4, 0, 0, "Human", "mortal"),
     ];
 
     const renderCharacters = () => {
         return characterList.map((char) => {
             return ( 
-                <SafeAreaView key={1}>
+                <SafeAreaView key={char.id}>
                     <TextInput
                         style={styles.input}
                         onChangeText={setInputCharacterName}

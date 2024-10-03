@@ -26,26 +26,28 @@ function Character(): React.JSX.Element {
 
     const renderCharacters = () => {
         return characterList.map((char) => {
-            return <SafeAreaView>
-                <TextInput
-                style={styles.input}
-                onChangeText={setInputCharacterName}
-                value={inputCharacterName}
-                placeholder="Character's Name"
-                keyboardType="default"
-                />
-                <Button
-                onPress={onPressSetCharacterName}
-                title="Set Character's Name"
-                accessibilityLabel="Set Character's Name"
-                />
-                <Text>
-                    {char.characterName}
-                    {"\n"}
-                    {char.playerName}
-                    {"\n"}
-                </Text>
-            </SafeAreaView>;
+            return ( 
+                <SafeAreaView>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={setInputCharacterName}
+                        value={inputCharacterName}
+                        placeholder="Character's Name"
+                        keyboardType="default"
+                    />
+                    <Button
+                        onPress={onPressSetCharacterName}
+                        title="Set Character's Name"
+                        accessibilityLabel="Set Character's Name"
+                    />
+                    <Text>
+                        {char.characterName}
+                        {"\n"}
+                        {char.playerName}
+                        {"\n"}
+                    </Text>
+                </SafeAreaView>
+            );
         });
     };
 

@@ -41,7 +41,7 @@ function App(): React.JSX.Element {
   const [parryingStrikeResult, setParryingStrikeResult] = useState<number | string>(0);
   const [dragIntoDarknessResult, setDragIntoDarknessResult] = useState<number | string>(0);
   const [shootResult, setShootResult] =useState<(number | string)[]>([0, 0]);
-  const [cleaveResult, setCleaveResult] =useState([0, 0]);
+  const [cleaveResult, setCleaveResult] =useState<((number | string)[] | number | string)>([0, 0]);
 
   const onPressRollD20 = () => {
     setDieValue(dieRoller(20));

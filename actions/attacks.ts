@@ -11,6 +11,11 @@ import{
 } from '../AttackModules/damageModules.ts'; 
 
 export function slam(DaD: number, wDamage: number): number | string {
+    /*
+        check if character has a weapon equiped that gives slam
+        selectedCharacter.equippedWeapons.any(weapon => weapon.basicAttacks.includes("slam")) || selectedCharacter.bricks.any(brick => brick.includes("slam"))
+        selectedCharacter.equippedWeapons.any(weapon => weapon.tags.includes("crushing"))
+    */
     return basicAttack(DaD, wDamage * 2, 8);
 };
 

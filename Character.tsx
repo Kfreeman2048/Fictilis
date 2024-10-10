@@ -13,17 +13,28 @@ import {
 
 import CharacterClass from "./Character/characterClass.ts";
 
+import WeaponClass from "./Weapon/weaponClass.ts";
+
 function Character(): React.JSX.Element {
     const [inputCharacterName, setInputCharacterName] = useState('');
     const [newCharacterName, setNewCharacterName] = useState('');
+
     const onPressSetCharacterName = () => {
         setNewCharacterName(inputCharacterName);
     };
 
-    const characterList = [
-        new CharacterClass(1, newCharacterName, "Kevin", 10, 10, 4, 4, 0, 0, "Human", "mortal"),
-    ];
+    let oakClub = new WeaponClass(1, "Oak Club", ["Melee", "Crushing"], 6, ["slam"]);
+    let hatchet = new WeaponClass(2, "Hatchet", ["Melee", "Slashing"], 6, ["cleave"]);
+    
+    let weaponMap = new Map<WeaponClass, boolean>([
+        [hatchet, false],
+        [oakClub, true]
+    ]);
 
+    const characterList = [
+        new CharacterClass(1, newCharacterName, "Kevin", 10, 10, 4, 4, 0, 0, "Human", "mortal", weaponMap,)
+    ];
+ 
     const renderCharacters = () => {
         return characterList.map((char) => {
             return ( 

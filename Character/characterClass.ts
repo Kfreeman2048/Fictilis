@@ -1,3 +1,5 @@
+import weaponClass from "../Weapon/weaponClass";
+
 class CharacterClass {
     constructor(
         public id: number,
@@ -10,7 +12,8 @@ class CharacterClass {
         private deflectAndDodge: number,
         private damageReduction: number,
         private species: string,
-        private deathCondition: string
+        private deathCondition: string,
+        public weapons: Map<weaponClass, boolean> = new Map<weaponClass, boolean>()
     ) {}
 };
 export default CharacterClass;

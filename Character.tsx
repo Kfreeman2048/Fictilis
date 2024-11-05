@@ -56,6 +56,8 @@ function Character(): React.JSX.Element {
                         {"\n"}
                         {char.playerName}
                         {"\n"}
+                        {JSON.stringify(char.weapons.get(oakClub))}
+                        {"\n"}
                     </Text>
                 </SafeAreaView>
             );

@@ -13,7 +13,7 @@ class CharacterClass {
         private damageReduction: number,
         private species: string,
         private deathCondition: string,
-        public weapons: Map<weaponClass, boolean> = new Map<weaponClass, boolean>()
+        public weapons: Map<weaponClass, boolean>
     ) {}
 };
 export default CharacterClass;
